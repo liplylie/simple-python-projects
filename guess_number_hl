@@ -1,0 +1,37 @@
+# Guess the number - highter and lower help
+import random
+numbers = range(0,51)
+computer_guess = random.randint(0,51)
+guess = []
+play_again = "yes"
+play_again_options = ("yes","no")
+My_Name = input("Hi, What is your name?")
+while play_again == "yes":
+    try:
+        guess = int(input("Hi %s, please guess what the number is by choosing a number from 1-50" % My_Name))
+    except:
+        while guess is ValueError:
+            guess = int(input("Hi %s, that is not an option. Please guess what the number is by choosing a number from 1-50" % My_Name))
+    while guess not in numbers:
+        try:
+            guess = int(input("Sorry, that is not in the range. Please guess another number"))
+        except:
+            while guess is ValueError:
+                guess = int(input("Sorry, that is not in the range. Please guess another number"))                       
+    while guess != computer_guess:
+        if guess < computer_guess:
+            guess = int(input("Try choosing a higher number"))
+            while guess not in numbers:
+                guess = int(input("Sorry, that is not in the range. Please guess another number")) 
+        elif guess > computer_guess:
+            guess = int(input("Try choosing a lower number"))
+            while guess not in numbers:
+                guess = int(input("Sorry, that is not in the range. Please guess another number")) 
+                
+    if guess == computer_guess:
+        play_again = input("Congrats! You guessed correctly. Play again?")
+        if play_again not in play_again_options:
+            play_again = input("Sorry, that is not an option. Would you like to play again?")
+        if play_again == "no":
+            print ("Game Over")
+
