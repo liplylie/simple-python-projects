@@ -1,0 +1,102 @@
+#-----Rock,Paper,Scissor Full Game-----#
+import random
+selection = ['rock','paper','scissor']
+game_select = ['cmp vs cmp', 'p1 vs cmp', 'p1 vs p2']
+play_again = "yes"
+
+while play_again == "yes" or "y":
+
+    game_mode = input('Choose game mode: cmp vs cmp, P1 vs cmp, or P1 vs P2').lower()
+
+    while game_mode not in game_select:
+        game_mode = input('Choose game mode: cmp vs cmp, P1 vs cmp, or P1 vs P2').lower()
+
+    if game_mode == 'cmp vs cmp':
+        cmp1 = random.choice(selection)
+        print ("Computer 1 chose %s" % (cmp1))
+        cmp2 = random.choice(selection)
+        print ("Computer 2 chose %s" % (cmp2))
+        if cmp1== cmp2:
+            print ("The game is a tie. Please play again!")
+        else:
+            if cmp1 == 'rock' and cmp2== 'paper':
+                print ("Computer 2 wins! Computer 1 loses")
+            elif cmp1 == 'rock' and cmp2 == 'scissor':
+                print ("Computer 1 wins! Computer 2 loses")
+            elif cmp1== 'paper' and cmp2 == 'rock':
+                print ("Computer 1 wins! Computer 2 loses")
+            elif cmp1== 'paper' and cmp2 == 'scissor':
+                print ("Computer 2 wins! Computer 1 loses")
+            elif cmp1== 'scissor' and cmp2 == 'rock':
+                print ("Computer 2 wins! Computer 1 loses")
+            elif cmp1 == 'scissor' and cmp2 == 'paper':
+                print ("Computer 1 wins! Computer 2 loses")
+
+    elif game_mode == 'p1 vs cmp':
+        P1 = input('Player 1: Choose Rock, Paper, or Scissor').lower()
+        while P1 not in selection:
+            P1 = input('Player 1: Choose Rock, Paper, or Scissor').lower()
+        print ("Player 1 chose %s" % (P1))
+        cmp1 = random.choice(selection)
+        print ('The Computer chose %s' % (cmp1))
+        if P1 == cmp1:
+            print ("The game is a tie. Please play again!")
+        else:
+            if P1 == 'rock' and cmp1 == 'paper':
+                print ("The Computer wins! You lose.")
+            elif P1 == 'rock' and cmp1 == 'scissor':
+                print ("You win!")
+            elif P1 == 'paper' and cmp1 == 'rock':
+                print ("You win!")
+            elif P1 == 'paper' and cmp1 == 'scissor':
+                print ("The Computer wins! You lose.")
+            elif P1 == 'scissor' and cmp1 == 'rock':
+                print ("The Computer wins! You lose.")
+            elif P1 == 'scissor' and cmp1 == 'paper':
+                print ("You win!")
+    elif game_mode == "p1 vs p2":
+        P1 = input('Player 1: Choose Rock, Paper, or Scissor').lower()
+        while P1 not in selection:
+            P1 = input('Player 1: Choose Rock, Paper, or Scissor').lower()
+            
+        P2 = input('Player 2: Choose Rock, Paper, or Scissor').lower()
+        while P2 not in selection:
+            P2 = input('Player 2: Choose Rock, Paper, or Scissor').lower()
+        print ("Player 1 chose %s" % (P1))
+        print ("Player 2 chose %s" % (P2))
+        if P1== P2:
+            print ("The game is a tie. Please play again!")
+        else:
+            if P1 == 'rock' and P2 == 'paper':
+                print ("Players 2 wins! Player 1 loses")
+            elif P1 == 'rock' and P2 == 'scissor':
+                print ("Player 1 wins! Players 2 loses")
+            elif P1 == 'paper' and P2 == 'rock':
+                print ("Player 1 wins! Players 2 loses")
+            elif P1 == 'paper' and P2 == 'scissor':
+                print ("Player 2 wins! Player 1 loses")
+            elif P1 == 'scissor' and P2 == 'rock':
+                print ("Players 2 wins! Player 1 loses")
+            elif P1 == 'scissor' and P2 == 'paper':
+                print ("Player 1 wins! Players 2 loses")
+
+    play_again = input('Do you wish to play again?').lower()
+    play_again_select = ["yes","y","no","n"]
+
+    while play_again not in play_again_select:
+        play_again = input('Do you wish to play again?').lower()
+
+    if play_again == "yes":
+        play_again = "yes"
+        
+    elif play_again == "y":
+        play_again = "yes"
+        
+    else:
+        play_again = "no"
+        print ("Game Over")
+        break
+    
+    
+    
+
